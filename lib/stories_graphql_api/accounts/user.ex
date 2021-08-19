@@ -3,12 +3,12 @@ defmodule StoriesGraphqlApi.Accounts.User do
   import Ecto.Changeset
 
   schema "users" do
-    field :email, :string, unique: true
+    field :email, :string
     field :first_name, :string
     field :last_name, :string
     field :password_hash, :string
-    field :password, :string
-    field :password_confirmation, :string
+    field :password, :string, virtual: true
+    field :password_confirmation, :string, virtual: true
     field :role, :string, default: "user"
 
     timestamps()
@@ -41,7 +41,9 @@ defmodule StoriesGraphqlApi.Accounts.User do
     |> password_hash()
   end
 
-  defp password_hash(changeset) do
-    changeset
+  defp password_hash(%Ecto.Changeset{valid?: true, changes: %{password: password}} = changeset) do
+    change(changeset, Bcrypt.add_hash(password))
   end
+
+  defp password_hash(changeset), do: changeset
 end
