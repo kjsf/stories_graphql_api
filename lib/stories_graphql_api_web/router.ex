@@ -5,8 +5,14 @@ defmodule StoriesGraphqlApiWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/api", StoriesGraphqlApiWeb do
+  scope "/api" do
     pipe_through :api
+
+    forward "/graphql", Absinthe.Plug, schema: StoriesGraphqlApiWeb.Schema
+
+    if Mix.env() == :dev do
+      forward "/graphiql", Absinthe.Plug.GraphiQL, schema: StoriesGraphqlApiWeb.Schema
+    end
   end
 
   # Enables LiveDashboard only for development
