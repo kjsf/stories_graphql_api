@@ -3,5 +3,5 @@ defmodule StoriesGraphqlApiWeb.Schema.Types do
 
   alias StoriesGraphqlApiWeb.Schema.Types
 
-  import_types(Types.UserType)
+  import_types(Types.AccountsTypes)
 end

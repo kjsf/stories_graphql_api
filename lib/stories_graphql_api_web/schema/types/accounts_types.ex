@@ -1,4 +1,4 @@
-defmodule StoriesGraphqlApiWeb.Schema.Types.UserType do
+defmodule StoriesGraphqlApiWeb.Schema.Types.AccountsTypes do
   use Absinthe.Schema.Notation
 
   object :user_type do

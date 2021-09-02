@@ -1,4 +1,4 @@
-defmodule StoriesGraphqlApiWeb.Resolvers.UserResolver do
+defmodule StoriesGraphqlApiWeb.Resolvers.AccountsResolver do
   alias StoriesGraphqlApi.Accounts
 
   def users(_parent, _args, _resolution) do
