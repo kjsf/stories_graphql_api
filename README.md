@@ -2,7 +2,7 @@
 
 **Its like twitter but (stories) long.**
 
-_This app was created to practice back-end skills with phoenix, ecto and graphql._
+_This app was created to practice back-end skills with Phoenix, Ecto and GraphQL._
 
 ### To start the server:
 
@@ -19,7 +19,7 @@ mix ecto.setup
 mix phx.server
 ```
 
-Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
+Now you can visit [`localhost:4000/api/graphiql`](http://localhost:4000/api/graphiql) from your browser to test the API.
 
 ### Inspired by:
 
