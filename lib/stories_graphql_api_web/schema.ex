@@ -11,4 +11,13 @@ defmodule StoriesGraphqlApiWeb.Schema do
       resolve(&Resolvers.AccountsResolver.users/3)
     end
   end
+
+  mutation do
+    @desc "Registers a user"
+    field :register_user, type: :user_type do
+      arg(:input, non_null(:user_input_type))
+
+      resolve(&Resolvers.AccountsResolver.register_user/3)
+    end
+  end
 end
